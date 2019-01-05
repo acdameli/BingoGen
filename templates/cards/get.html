@@ -1,0 +1,7 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h1>{{ card.id }}</h1>
+    {% include 'cards/card.html' with context %}
+
+    <a href="{{ url_for('project_get', project_id=card.project_id) }}">Back to project {{ card.project_id }}</a>
+{% endblock %}

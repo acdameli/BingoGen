@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h1>Cards for {{ project.name }}</h1>
+    <ul>
+        {% for card in project.cards %}
+            <li>{% include 'cards/card.html' with context %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

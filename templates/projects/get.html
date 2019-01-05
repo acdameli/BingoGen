@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block body %}
+    <h1>{{ project.name }}</h1>
+    <h2>Available Cards</h2>
+    <ol>
+        {% for card in project.cards %}
+            <li><a href="{{ url_for('card_get', project_id=project.id, card_id=card.id) }}">{{ card.id }}</a></li>
+        {% endfor %}
+    </ol>
+    <form method="post" action="{{ url_for('card_generate', project_id=project.id) }}">
+        <label for="rows">Number of rows/columns: </label><input type="number" id="rows" name="rows" value="3" />
+        <input type="Submit" value="Generate Card" />
+    </form>
+    <h2>Available Items for Cards</h2>
+    <ul>
+        {% for item in project.items %}
+            <li>{{ item.detail }}</li>
+        {% endfor %}
+    </ul>
+    <form method="post" action="{{ url_for('item_create', project_id=project.id) }}">
+        <label for="detail">Item String: </label><input type="text" id="detail" name="detail" value="" /><br>
+        <label for="free_space">Free Space: </label><input type="checkbox" value="1" name="free_space" id="free_space" /><br>
+        <input type="Submit" value="Create Item" />
+    </form>
+    <a href="{{ url_for('project_index') }}">Back to projects</a>
+{% endblock %}

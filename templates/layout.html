@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bingo Project</title>
+    <style>
+        /* start css reset */
+        html {
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+
+        body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+            margin: 0;
+            padding: 0;
+            font-weight: normal;
+        }
+
+        ol, ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        /* end reset */
+
+
+        /* html tables for card styling, super hacky */
+        table.card {
+            width: 100%;
+            text-align: center;
+            margin-top: 50px;
+            border-collapse: collapse;
+            border-spacing: 5px;
+        }
+
+        /* cell width/height */
+        table.card td {
+            width: 33.33%;
+            position: relative;
+            border: solid 1px black;
+        }
+
+        /* Ensures cell height */
+        table.card td:after {
+            content: '';
+            display: block;
+            margin-top: 100%;
+        }
+
+        /* vertical alignment */
+        table.card td div {
+            position: absolute;
+            top: 45%;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    {% block body %}{% endblock %}
+</body>
+</html>
